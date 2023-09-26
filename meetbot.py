@@ -20,20 +20,6 @@ CHAT_MODEL_NAME = "gpt-35-turbo-16k"
 # CHAT_MODEL_NAME = "gpt-4-32k"
 
 
-name_mapping = {"蕭百芸": "A",
-                "張瑀珊": "B",
-                "宜萱 林": "C",
-                "林宜萱": "C",
-                "邱詩涵": "D",
-                "林佳儒": "E",
-                "高筱妤": "F",
-                "鍾嘉元": "G",
-                "柯又瑄": "H",
-                "柯虹綺": "I",
-                "黃思穎": "J",
-                "王苡綸": "K",
-                "郭珮娟": "L"}
-
 
 # 如你看到 A 就使用蕭百芸、你看到 B 就使用張瑀珊、你看到 C 就使用林宜萱
 # 會議中的名字都被去識別化了，請幫參考人名對照表<{name_mapping}>中字典的格式幫我將所有生成出來的姓名用本名表示
@@ -51,8 +37,8 @@ prompt = f"""你是一個專業的會議記錄機器人，請你幫我詳細總�
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
-meetbot_channel_id = 1154417738643689562
-my_channel_id = 1154293514667036723
+meetbot_channel_id = (os.getenv("meetbot_channel_id"))
+my_channel_id = (os.getenv("my_channel_id"))
 
 #調用 event 函式庫
 @client.event

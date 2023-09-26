@@ -50,30 +50,12 @@ def read(filename):
     document_text = ""
     time_pattern = r'\d+:\d+:\d+\.\d+ --> \d+:\d+:\d+\.\d+'
     name_pattern = r'[A-Z-]+,[A-Z-]+|[A-Z-]+[A-Z-]+'
-    replace_dict = {
-    # "蕭百芸": "A",
-    # "張瑀珊": "B",
-    # "宜萱 林": "C",
-    # "林宜萱": "C",
-    # "邱詩涵": "D",
-    # "林佳儒": "E",
-    # "高筱妤": "F",
-    # "鍾嘉元": "G",
-    # "柯又瑄": "H",
-    # "柯虹綺": "I",
-    # "黃思穎": "J",
-    # "王苡綸": "K",
-    # "郭珮娟": "L",
-    ',':'','。':'','?':'','!':'',' ':'','，':'','？':''
-    # 添加更多要替換的字符串和替換值
-    }
-
+    replace_dict = {',':'','。':'','?':'','!':'',' ':'','，':'','？':''}    # 添加更多要替換的字符串和替換值
 
     for paragraph in doc.paragraphs:
 
         match = re.match(time_pattern, paragraph.text)
         matches = re.findall(name_pattern, paragraph.text)
-
 
         if match:
 
